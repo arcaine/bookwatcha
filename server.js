@@ -24,16 +24,6 @@ var app =express();
 //jade view 파일 이쁘게
 app.locals.pretty = true;
 
-//로그인 작업 설정
-app.use(passport.initialize());
-app.use(passport.session());
-
-//jade 설정
-app.set('views', './views');
-app.set('view engine', 'jade');
-
-
-app.use(bodyParser.urlencoded({ extended: false }));
 //세션 설정
 app.use(session({
   secret: '1234DSFs@adf1234!@#$asd',
@@ -48,21 +38,34 @@ app.use(session({
   })
 }));
 
+
+//로그인 작업 설정
+app.use(passport.initialize());
+app.use(passport.session());
+
+//jade 설정
+app.set('views', './views');
+app.set('view engine', 'jade');
+
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
 //passport serialize 설정
 passport.serializeUser(function(user,done){
   console.log('serializeuser', user);
   done(null, user.authId);
 });
-passport.deserializeUser(function(id, done){
-  console.log("deserializeUser", id);
+
+passport.deserializeUser(function(id, done) {
+  console.log('deserializeUser', id);
   var sql = 'SELECT * FROM users WHERE authId=?';
-  conn.qeury(sql,[id], function(err,results){
+  conn.query(sql, [id], function(err, results){
     if(err){
       console.log(err);
-      done('There is no user')
-    }else{
+      done('There is no user.');
+    } else {
       done(null, results[0]);
-    };
+    }
   });
 });
 //passport 전략 설정
@@ -124,7 +127,8 @@ passport.use(new FacebookStrategy({
 
 //라우팅
 app.get('/', function(req, res){
-  res.render("main")
+  console.log(req.user);
+  res.render("main",{user:req.user});
 });
 app.get('/boxoffice',function(req,res){
   res.render("box")
@@ -197,7 +201,6 @@ app.get(
     }
   )
 );
-
 
 
 app.listen(3003, function(){

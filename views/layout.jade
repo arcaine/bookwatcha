@@ -24,9 +24,12 @@ DOCTYPE
                 span#search-icon
             div#gnb-right-menu.right-menu
               div.menu.part
-                a.name(href="/")
                 img.thumbnail(src="../public/images/thumbnail.jpg")
                 span.highlight
+                if user
+                  h1=user.displayName
+                else
+                  h1 login
                 div.dropdown
                   ul
                     li
