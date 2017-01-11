@@ -28,9 +28,6 @@ app.locals.pretty = true;
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
-
 //jade 설정
 app.set('views', './views');
 app.set('view engine', 'jade');
@@ -88,6 +85,39 @@ passport.use(new LocalStrategy(
         }
 
       });
+    });
+  }
+));
+
+passport.use(new FacebookStrategy({
+  clientID: '102742520230194',
+  clientSecret: '54e3ae01a654e4b71d898f1a3df0c69e',
+  callbackURL: "/auth/facebook/callback",
+  profileFields:['id', 'email', 'gender', 'link', 'locale', 'name', 'timezone', 'updated_time', 'verified', 'displayName']
+},
+  function(accessToken, refreshToken, profile, done){
+    console.log(profile);
+    var authId = 'facebook:'+profile.id;
+    var sql = 'SELECT * FROM users WHERE authId=?';
+    conn.query(sql, [authId], function(err, results){
+      if(results.length>0){
+        done(null, results[0]);
+      }else{
+        var newuser = {
+          'authId':authId,
+          'displayName':profile.displayName,
+          'email':profile.emails[0].value
+        };
+        var sql ='INSERT INTO users SET ?'
+        conn.query(sql, newuser, function(err, results){
+          if(err){
+            console.log(err);
+            done('Error');
+          }else{
+            done(null, newuser);
+          }
+        })
+      }
     });
   }
 ));
@@ -150,7 +180,26 @@ app.post('/auth/register', function(req, res){
   });
 });
 
+app.get(
+  '/auth/facebook',
+  passport.authenticate(
+    'facebook',
+    {scope:'email'}
+  )
+);
+app.get(
+  '/auth/facebook/callback',
+  passport.authenticate(
+    'facebook',
+    {
+      successRedirect: '/',
+      failureRedirect: '/auth/login'
+    }
+  )
+);
 
-app.listen(3000, function(){
-  console.log('Connected, 3000 Port!')
+
+
+app.listen(3003, function(){
+  console.log('Connected, 3003 Port!')
 });
