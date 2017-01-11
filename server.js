@@ -25,9 +25,15 @@ app.use(session({
   })
 }));
 
-
+//라우팅
 app.get('/', function(req, res){
-  res.render("view")
+  res.render("main")
+});
+app.get('/boxoffice',function(req,res){
+  res.render("box")
+});
+app.get('/recommendation',function(req,res){
+  res.render("rec")
 });
 
 

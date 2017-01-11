@@ -1,0 +1,67 @@
+DOCTYPE 
+  html
+    head
+    body
+      div#header.with-payment-bar
+        div.for-popup-scroll-area-margin
+          div.inner.responsive-mask
+            ul.gnb.clearfix
+              li
+                a(href="/") 와챠!
+                span.highlight
+              li
+                a(href="/boxoffice") 박스오피스
+                span.highlight
+              li
+                a(href="/recommendation") 추천영화
+                span.highlight
+              li
+                a(href="/evalmore") 평가늘리기
+                span.highlight
+            form#search-form(accept-charset='UTF-8', action='/search/search', method='get')
+              .input-wrapper
+                input#input-query.ui-autocomplete-input(name='query', type='search', autocomplete='off')
+                span#search-icon
+            div#gnb-right-menu.right-menu
+              div.menu.part
+                a.name(href="/")
+                img.thumbnail(src="../public/images/thumbnail.jpg")
+                span.highlight
+                div.dropdown
+                  ul
+                    li
+                      a(href="/") 영화보관함
+                      span.count 602
+                    li
+                      a(href="/giftbox") 선물함
+                    li.divide-line
+                      a(href="#") 친구초대
+                    li.divide-line
+                      a(href="#") 설정
+                    li
+                      a(href="/logout") 로그아웃
+            
+      div.contents
+        block content
+      div.footer
+        div.wrapper.responsive-mask
+          div.upper
+            div.name LAONWorK
+            div.sns
+              a.fb(href="#" target="_blank") 페이스북
+              a.twitter(href="#" target="_blank") 트위터
+              a.blog(href="#" target="_blank") 블로그
+            div.count-like-tweet  
+              div.count 
+                div.text
+                  span.star-icon
+                  span.number 123141
+                              |개의 별점 평가가 쌓이고 있습니다.
+            div.social-plugin-wrapper
+              div.fb-like plugin
+              a.tweet
+              //- 여기는 소셜 관련 개발
+            div.info
+              |사업자명 LAONWorK
+              |%c 2017 by laonwork All rights reserved
+            
