@@ -1,0 +1,95 @@
+/*나눔고딕 받음 */
+/*@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+html, input, textarea{
+  font-family: 'Nanum Gothic', sans-serif;
+}
+div{
+  margin:0;
+  padding:0;
+  border:0;
+  display:block;
+  width: auto;
+}
+html, body{
+  height:100%;
+  margin: 0;
+  padding:0;
+  background-color : #E5E5E5;
+  letter-spacing: -1px;
+}
+html {
+  line-height: 1;
+  display:block;
+}
+
+body.on-the-cover #header{
+  border-bottom:0 none;
+  background-color:transparent;
+  box-shadow: none;
+  border: 1px solid black;
+}
+
+#header .with-payment-bar {
+  top: 60px;
+};
+
+#header {
+  position : fixed;
+  border: 1px solid blue;
+
+  top: 0;
+  left:0;
+  /*border-bottom : 1px solid #c8c8c8;*/
+  /*width: 100%;
+  z-index:100%;*/
+  /*transition-property: all;*/
+  /*transition-duration:0.5s;*/
+/*}
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
+#header .inner .gnb .navi-item a{
+  display: block;
+}
+.contents{
+  padding:100px 0 50px;
+}
+.footer{
+  position:absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+  border:1px solid green;
+  background-color: white;
+  font-weight:200;
+  font-size : 0.8rem;
+  height: 230px;
+  display:block;
+}
+
+.footer.wrapper{
+  border: 3px solid red;
+  display:inline-block;
+  position:relative;
+  vertical-align:baseline;
+}
+.text{
+  text-align:left;
+  font-size:14px;
+  line-height:25px;
+  color:#6d6c83;
+  position:relative;
+  padding-left: 33px;
+  margin-right: 10px;
+  border:1px solid black;
+  display:inline-block;
+
+}
+#footer .wrapper .info{
+  text-align:left;
+  color:#93939c;
+  font-size:12px;
+  line-height:16px;
+
+}*/*/

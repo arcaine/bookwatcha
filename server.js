@@ -24,6 +24,7 @@ var app =express();
 //jade view 파일 이쁘게
 app.locals.pretty = true;
 
+app.use(express.static(__dirname + '/public'))
 //세션 설정
 app.use(session({
   secret: '1234DSFs@adf1234!@#$asd',

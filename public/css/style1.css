@@ -1,0 +1,112 @@
+* > *{
+  border: 1px solid red;
+}
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+html{
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size:1.0rem;
+  min-height:500px;
+  color:rgba(109,108,131,1)
+}
+a{
+  text-decoration:none;
+}
+
+.wrapper{
+  border: 1px solid tomato;
+  display:flex;
+  flex-direction:column;
+}
+
+
+.wrapper>*{
+  flex-grow:0;
+}
+
+.wrapper .contents{
+  border: 1px solid green;
+  flex-grow:1;
+  flex-basis:800px;
+  background-color:rgba(229,229,299,0.8)
+}
+
+#footer{
+  border: 1px solid red;
+  position : relative;
+  bottom:0;
+}
+
+#header{
+  border: 1px solid black;
+  flex-basis:50px;
+  font-size:1.2rem;
+}
+#header nav{
+    display:flex;
+    align-content:center;
+}
+
+nav>*{
+  flex-grow:1;
+  border:1px solid blue;
+}
+nav .brand{
+  flex-grow:0;
+}
+nav ul{
+  flex-grow:0;
+}
+nav #search-form{
+  flex-grow:2;
+}
+.input-query{
+  margin-left:auto;
+  margin-right:auto;
+}
+.dropdown a{
+  position:relative;
+  left: 5px;
+}
+#header .topline nav ul{
+    display:flex;
+}
+
+
+
+.dropdown-contents{
+  display:none;
+  position: absolute;
+  background-color: white;
+  min-width:160px;
+}
+
+.dropdown:hover .dropdown-contents{
+  display:block;
+}
+
+#footer .topper{
+  display:flex;
+  margin-top:15px;
+}
+.topper>*{
+  flex-grow:1;
+}
+.topper .name{
+  padding-left: 30px;
+  border:1px solid red;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.topper .sns{
+  padding-right: 30px;
+  border:1px solid red;
+  text-align:right;
+  font-family:'fontello';
+}
+
+.under{
+  margin-top:50px;
+}
+.info{
+  font-size:0.8rem;
+}

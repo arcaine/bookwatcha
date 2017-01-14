@@ -1,70 +1,74 @@
-DOCTYPE 
-  html
+html
     head
+      link(rel="stylesheet", href='../css/reset.css')
+      link(rel="stylesheet", href="../css/style1.css")
+      link(rel="stylesheet", href="../css/fontello.css")
     body
-      div#header.with-payment-bar
-        div.for-popup-scroll-area-margin
-          div.inner.responsive-mask
-            ul.gnb.clearfix
-              li
-                a(href="/") 와챠!
-                span.highlight
-              li
-                a(href="/boxoffice") 박스오피스
-                span.highlight
-              li
-                a(href="/recommendation") 추천영화
-                span.highlight
-              li
-                a(href="/evalmore") 평가늘리기
-                span.highlight
-            form#search-form(accept-charset='UTF-8', action='/search/search', method='get')
-              .input-wrapper
-                input#input-query.ui-autocomplete-input(name='query', type='search', autocomplete='off')
-                span#search-icon
-            div#gnb-right-menu.right-menu
-              div.menu.part
-                img.thumbnail(src="../public/images/thumbnail.jpg")
-                span.highlight
-                if user
-                  h1=user.displayName
-                else
-                  h1 login
+      .wrapper
+        header#header
+          div.topline
+            nav
+              a.brand(href="#")
+                img(alt="Brand" src="#")
+                
+              ul.navbar
+                li
+                  a(href="/") 와챠!
+                  span.highlight
+                li
+                  a(href="/boxoffice") 박스오피스
+                  span.highlight
+                li
+                  a(href="/recommendation") 추천영화
+                  span.highlight
+                li
+                  a(href="/evalmore") 평가늘리기
+                  span.highlight
+              form#search-form(accept-charset='UTF-8', action='/search/search', method='get')
+                .input-wrapper
+                  input#input-query.ui-autocomplete-input(name='query', type='search', autocomplete='off')
+                  span#search-icon
+              div#gnb-right-menu.right-menu
                 div.dropdown
-                  ul
-                    li
-                      a(href="/") 영화보관함
-                      span.count 602
-                    li
-                      a(href="/giftbox") 선물함
-                    li.divide-line
-                      a(href="#") 친구초대
-                    li.divide-line
-                      a(href="#") 설정
-                    li
-                      a(href="/logout") 로그아웃
-            
-      div.contents
-        block content
-      div.footer
-        div.wrapper.responsive-mask
-          div.upper
-            div.name LAONWorK
-            div.sns
-              a.fb(href="#" target="_blank") 페이스북
-              a.twitter(href="#" target="_blank") 트위터
-              a.blog(href="#" target="_blank") 블로그
-            div.count-like-tweet  
-              div.count 
+                  span.highlight
+                  if user
+                    a.logged(href="#")=user.displayName
+                  else
+                    a(href="/auth/login") login
+                  div.dropdown-contents
+                    ul
+                      li
+                        a(href="/") 영화보관함
+                        span.count 602
+                      li
+                        a(href="/giftbox") 선물함
+                      li.divide-line
+                        a(href="#") 친구초대
+                      li.divide-line
+                        a(href="#") 설정
+                      li
+                        a(href="/logout") 로그아웃
+                
+        div.contents
+          block content
+        div.footer#footer
+          div.footwrapper
+            div.topper
+              div.name LAONWorK
+              div.sns
+                a.icon-facebook-circled(href="#" target="_blank")페이스북
+                a.icon-twitter(href="#" target="_blank") 트위터
+                a.icon-blogger-rect(href="#" target="_blank") 블로그
+            div.under
+              div.likes   
                 div.text
                   span.star-icon
                   span.number 123141
                               |개의 별점 평가가 쌓이고 있습니다.
-            div.social-plugin-wrapper
-              div.fb-like plugin
-              a.tweet
-              //- 여기는 소셜 관련 개발
-            div.info
-              |사업자명 LAONWorK
-              |%c 2017 by laonwork All rights reserved
-            
+              div.social
+                div.fb-like plugin
+                a.tweet
+                //- 여기는 소셜 관련 개발
+              div.info
+                |사업자명 LAONWorK
+                |© 2017 by laonwork All rights reserved
