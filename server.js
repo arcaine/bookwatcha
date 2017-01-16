@@ -204,6 +204,46 @@ app.get(
 );
 
 
+//책검색
+app.get('/search?',function(req, res){
+  var query = req.query.q;
+  console.log(query);
+  var request = require("request");
+  var api_url = "https://apis.daum.net/search/book?apikey=f6dec2fca72c2c6b08b9ced10698c770&q="+query+"&display=5&output=json"
+  var api_encoded = encodeURI(api_url);
+  // var api_url = 'https://openapi.naver.com/v1/search/book_adv.json?d_titl=채식주의자&display=1'; // json 결과
+    var request = require('request');
+    var options = {
+        url: api_encoded,
+        json:true
+        // headers: {'X-Naver-Client-Id':"qysWh8t8lXzD0OVbGlhz", 'X-Naver-Client-Secret': "2MIMEGzMGu"}
+     };
+  request(options,function(error, response, body){
+    if(!error && response.statusCode === 200){
+      var result = body['channel']['item'];
+      // for (item in result){
+        // console.log(item);
+      // }
+      // res.send(result);
+      var real_result = {};
+      for (item in result){
+        real_item = {
+          author: result[item].author_t,
+          title: result[item].title,
+          cover: result[item].cover_s_url,
+          category:result[item].category,
+          description: result[item].description
+        }
+        real_result[result[item].title] = real_item;
+      }
+      console.log(real_result);
+      // res.send(real_result);
+      res.render('search',{result:real_result});
+    }else if(error){
+      console.log(error);
+    }
+  });
+});
 app.listen(3003, function(){
   console.log('Connected, 3003 Port!')
 });

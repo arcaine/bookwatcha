@@ -1,0 +1,9 @@
+extends ./layout
+block content
+  each key in result
+    .books
+      img(src=key.cover)
+      .name=key.title
+      ul
+        li=key.author
+        li=key.description  

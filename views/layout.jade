@@ -24,10 +24,10 @@ html
                 li
                   a(href="/evalmore") 평가늘리기
                   span.highlight
-              form#search-form(accept-charset='UTF-8', action='/search/search', method='get')
-                .input-wrapper
-                  input#input-query.ui-autocomplete-input(name='query', type='search', autocomplete='off')
-                  span#search-icon
+              form#search-form(accept-charset='UTF-8', action='/search', method='get')
+                input#input-query.ui-autocomplete-input(name='q', type='search', autocomplete='off')
+                span#search-icon
+                input(type="submit", value="submit")
               div#gnb-right-menu.right-menu
                 div.dropdown
                   span.highlight
@@ -56,7 +56,7 @@ html
             div.topper
               div.name LAONWorK
               div.sns
-                a.icon-facebook-circled(href="#" target="_blank")페이스북
+                a.icon-facebook-circled(href="#" target="_blank") 페이스북
                 a.icon-twitter(href="#" target="_blank") 트위터
                 a.icon-blogger-rect(href="#" target="_blank") 블로그
             div.under
