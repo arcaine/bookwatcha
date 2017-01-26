@@ -1,9 +1,10 @@
 extends ./layout
 block content
   each key in result
-    .books
+    div.isbn(id= key.isbn)
       img(src=key.cover)
       .name=key.title
       ul
         li=key.author
         li=key.description  
+      button#button(class=key.isbn) 저장
